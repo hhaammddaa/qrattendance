@@ -1,0 +1,16 @@
+style.css
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+video {
+    border: 2px solid #333;
+    border-radius: 10px;
+}

@@ -1,0 +1,48 @@
+script.js
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Scanner</title>
+</head>
+<body>
+    <video id="qr-video" style="width: 100%; height: auto;"></video>
+    <canvas id="qr-canvas" style="display: none;"></canvas>
+    <p id="attendance-status">Waiting for QR code...</p>
+
+    <script src="https://cdn.jsdelivr.net/npm/jsqr"></script>
+    <script>
+        const video = document.getElementById("qr-video");
+        const canvasElement = document.getElementById("qr-canvas");
+        const canvas = canvasElement.getContext("2d");
+
+        navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
+            .then(stream => {
+                video.srcObject = stream;
+                video.onloadedmetadata = () => {
+                    video.play();
+                    startScanning();
+                };
+            })
+            .catch(err => console.error("Camera access error:", err));
+
+        function startScanning() {
+            setInterval(() => {
+                if (video.readyState === video.HAVE_ENOUGH_DATA) {
+                    canvasElement.width = video.videoWidth;
+                    canvasElement.height = video.videoHeight;
+                    canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
+
+                    const imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
+                    const code = jsQR(imageData.data, imageData.width, imageData.height);
+
+                    if (code) {
+                        document.getElementById("attendance-status").innerText = `QR Code Scanned: ${code.data}`;
+                    }
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

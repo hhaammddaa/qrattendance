@@ -1,0 +1,22 @@
+index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Attendance Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsqr/1.0.0/jsQR.min.js"></script>
+</head>
+<body>
+    <h1>QR Code Attendance Tracker</h1>
+
+    <!-- QR Code Scanner -->
+    <video id="qr-video" width="300" height="300"></video>
+    <canvas id="qr-canvas" hidden></canvas>
+
+    <p id="attendance-status">Scan a QR Code to mark attendance.</p>
+
+    <script src="script.js"></script>
+</body>
+</html>

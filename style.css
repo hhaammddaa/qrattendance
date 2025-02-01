@@ -3,7 +3,7 @@
     --secondary-color: #1976D2;
     --success-color: #4CAF50;
     --error-color: #F44336;
-    --text-color: #333;
+    --text-color: #ffffff; /* Changed to white for better contrast */
     --bg-color: #f5f5f5;
     --border-radius: 8px;
     --transition: all 0.3s ease;
@@ -17,23 +17,35 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--bg-color);
+    background-image: url('/api/placeholder/1920/1080'); /* Replace with your actual image URL */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     color: var(--text-color);
     line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    backdrop-filter: blur(8px);
 }
 
 .header {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.1);
     padding: 20px;
     border-radius: var(--border-radius);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .header h1 {
@@ -42,18 +54,20 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
+    text-align: center;
 }
 
 .nav-tabs {
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
+    justify-content: center;
 }
 
 .tab-btn {
     padding: 10px 20px;
     border: none;
-    background: none;
+    background: rgba(255, 255, 255, 0.1);
     cursor: pointer;
     font-size: 1rem;
     color: var(--text-color);
@@ -62,23 +76,27 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
+    border-radius: var(--border-radius);
 }
 
 .tab-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
     color: var(--primary-color);
 }
 
 .tab-btn.active {
     color: var(--primary-color);
+    background: rgba(255, 255, 255, 0.15);
     border-bottom-color: var(--primary-color);
 }
 
 .tab-content {
     display: none;
-    background: white;
+    background: rgba(255, 255, 255, 0.1);
     padding: 20px;
     border-radius: var(--border-radius);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .tab-content.active {
@@ -98,6 +116,7 @@ body {
     margin: 0 auto;
     overflow: hidden;
     border-radius: var(--border-radius);
+    border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 #qr-video {
@@ -112,7 +131,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0,0,0,0.1);
+    background: rgba(0,0,0,0.2);
 }
 
 .scan-area {
@@ -124,7 +143,7 @@ body {
     height: 200px;
     border: 2px solid var(--primary-color);
     border-radius: 20px;
-    box-shadow: 0 0 0 9999px rgba(0,0,0,0.5);
+    box-shadow: 0 0 0 9999px rgba(0,0,0,0.6);
 }
 
 /* Controls */
@@ -150,12 +169,14 @@ body {
 
 .btn:hover {
     background-color: var(--secondary-color);
+    transform: translateY(-2px);
 }
 
 /* Status Container */
 .status-container {
     text-align: center;
     margin-top: 20px;
+    color: var(--text-color);
 }
 
 #attendance-status {
@@ -163,10 +184,11 @@ body {
 }
 
 .last-scan {
-    background-color: #e3f2fd;
+    background-color: rgba(227, 242, 253, 0.1);
     padding: 15px;
     border-radius: var(--border-radius);
     margin-top: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .last-scan.hidden {
@@ -187,14 +209,15 @@ body {
     border-radius: var(--border-radius);
     color: white;
     animation: slideIn 0.3s ease-out;
+    backdrop-filter: blur(8px);
 }
 
 .toast.success {
-    background-color: var(--success-color);
+    background-color: rgba(76, 175, 80, 0.9);
 }
 
 .toast.error {
-    background-color: var(--error-color);
+    background-color: rgba(244, 67, 54, 0.9);
 }
 
 @keyframes slideIn {

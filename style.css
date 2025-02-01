@@ -1,6 +1,6 @@
 :root {
-    --primary-color: #2196F3;
-    --secondary-color: #1976D2;
+    --primary-color: #156c6f;
+    --secondary-color: #0b5766;
     --success-color: #4CAF50;
     --error-color: #F44336;
     --text-color: #ffffff; /* Changed to white for better contrast */
@@ -17,7 +17,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-image: url('/api/placeholder/1920/1080'); /* Replace with your actual image URL */
+    background-image: url('your-background.JPG'); /* Replace with your actual image URL */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -36,7 +36,7 @@ body {
     padding: 20px;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-    backdrop-filter: blur(8px);
+    backdrop-filter: clear;
 }
 
 .header {

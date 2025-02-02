@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR Attendance System</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -13,15 +12,9 @@
         <header class="header">
             <h1><i class="fas fa-qrcode"></i> QR Attendance System</h1>
             <nav class="nav-tabs">
-                <button class="tab-btn active" data-tab="scanner">
-                    <i class="fas fa-camera"></i> Scanner
-                </button>
-                <button class="tab-btn" data-tab="records">
-                    <i class="fas fa-list"></i> Records
-                </button>
-                <button class="tab-btn" data-tab="settings">
-                    <i class="fas fa-cog"></i> Settings
-                </button>
+                <button class="tab-btn active" data-tab="scanner"><i class="fas fa-camera"></i> Scanner</button>
+                <button class="tab-btn" data-tab="records"><i class="fas fa-list"></i> Records</button>
+                <button class="tab-btn" data-tab="settings"><i class="fas fa-cog"></i> Settings</button>
             </nav>
         </header>
 
@@ -37,12 +30,8 @@
                         <canvas id="qr-canvas" hidden></canvas>
                     </div>
                     <div class="controls">
-                        <button id="toggle-camera" class="btn">
-                            <i class="fas fa-camera-rotate"></i> Switch Camera
-                        </button>
-                        <button id="toggle-flash" class="btn">
-                            <i class="fas fa-bolt"></i> Toggle Flash
-                        </button>
+                        <button id="toggle-camera" class="btn"><i class="fas fa-camera-rotate"></i> Switch Camera</button>
+                        <button id="toggle-flash" class="btn"><i class="fas fa-bolt"></i> Toggle Flash</button>
                     </div>
                     <div id="scan-status" class="status-container">
                         <p id="attendance-status">Scan a QR Code to mark attendance</p>
@@ -58,18 +47,10 @@
             <!-- Records Tab -->
             <section id="records" class="tab-content">
                 <div class="records-container">
-                    <div class="records-header">
-                        <h2>Attendance Records</h2>
-                        <div class="records-controls">
-                            <input type="date" id="date-filter" class="date-input">
-                            <button id="export-csv" class="btn">
-                                <i class="fas fa-download"></i> Export CSV
-                            </button>
-                        </div>
-                    </div>
-                    <div id="records-list" class="records-list">
-                        <!-- Records will be populated by JavaScript -->
-                    </div>
+                    <h2>Attendance Records</h2>
+                    <input type="date" id="date-filter" class="date-input">
+                    <button id="export-csv" class="btn"><i class="fas fa-download"></i> Export CSV</button>
+                    <div id="records-list"></div>
                 </div>
             </section>
 
@@ -77,40 +58,23 @@
             <section id="settings" class="tab-content">
                 <div class="settings-container">
                     <h2>Scanner Settings</h2>
-                    <div class="setting-item">
-                        <label for="scan-interval">Scan Interval (ms)</label>
-                        <input type="number" id="scan-interval" min="100" max="2000" value="1000">
-                    </div>
-                    <div class="setting-item">
-                        <label for="auto-save">Auto Save Records</label>
-                        <input type="checkbox" id="auto-save" checked>
-                    </div>
-                    <div class="setting-item">
-                        <label for="sound-enabled">Enable Sound</label>
-                        <input type="checkbox" id="sound-enabled" checked>
-                    </div>
+                    <label for="scan-interval">Scan Interval (ms)</label>
+                    <input type="number" id="scan-interval" min="100" max="2000" value="1000">
+                    <label for="auto-save">Auto Save Records</label>
+                    <input type="checkbox" id="auto-save" checked>
+                    <label for="sound-enabled">Enable Sound</label>
+                    <input type="checkbox" id="sound-enabled" checked>
                 </div>
             </section>
         </main>
 
-        <!-- Toast Notifications -->
         <div id="toast-container" class="toast-container"></div>
     </div>
 
-   
-    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jsqr/1.0.0/jsQR.min.js"></script>
-    <script src="js/config.js"></script>
-    <script src="js/utils.js"></script>
-    <script src="js/scanner.js"></script>
-    <script src="js/records.js"></script>
-    <script src="js/ui.js"></script>
-    <script src="js/main.js"></script>
+    <script src="script.js"></script>
 
-
-     <!-- Audio elements for feedback -->
-     <audio id="success-sound" src="assets/success.mp3" preload="auto"></audio>
-     <audio id="error-sound" src="assets/error.mp3" preload="auto"></audio>
- 
+    <audio id="success-sound" src="assets/success.mp3" preload="auto"></audio>
+    <audio id="error-sound" src="assets/error.mp3" preload="auto"></audio>
 </body>
 </html>
